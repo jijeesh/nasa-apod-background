@@ -52,7 +52,8 @@ GET_IMAGE_ONLY = False
 # Future Option
 # Valid values are [top, bottom, left, right]
 # text_positioning = 'top'
-NASA_POD_SITE = 'http://apod.nasa.gov/apod/'
+NASA_POD_SITE_IMAGE = 'http://apod.nasa.gov/apod/'
+NASA_POD_SITE = 'http://apod.nasa.gov/apod/astropix.html'
 DOWNLOAD = os.getenv("HOME") + '/.backgrounds/'
 # This is default resolution, if dynamic method doesn't work
 RESOLUTION_X, RESOLUTION_Y = 1920, 1080
@@ -132,7 +133,7 @@ def get_image(text):
         file_url = reg.group(1)
     else:
         # Contains relative img path
-        file_url = NASA_POD_SITE + reg.group(1)
+        file_url = NASA_POD_SITE_IMAGE + reg.group(1)
     filename = os.path.basename(file_url)
     remote_file = urllib.urlopen(file_url)
     (temp_filename, instance) = urllib.urlretrieve(file_url)
